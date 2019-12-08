@@ -7,17 +7,17 @@ const app = express();
 app.set('view engine', 'hbs');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use((req,
+// app.use((req,
 
-	res,
-	(next) => {
-		let now = new Date.getFullYear();
-		let log = `${now} : ${req.method} ${req.url}`;
-		fs.appendFile('server.log', log + '\n', (err) => {
-			console.log('io err');
-		});
-	})
-);
+// 	res,
+// 	(next) => {
+// 		let now = new Date.getFullYear();
+// 		let log = `${now} : ${req.method} ${req.url}`;
+// 		fs.appendFile('server.log', log + '\n', (err) => {
+// 			console.log('io err');
+// 		});
+// 	})
+// );
 
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 hbs.registerHelper('date', () => {
@@ -31,5 +31,5 @@ app.get('/', function(req, res) {
 		content: ' salam azizan'
 	});
 });
-
+var r='salam';
 app.listen(3000);
